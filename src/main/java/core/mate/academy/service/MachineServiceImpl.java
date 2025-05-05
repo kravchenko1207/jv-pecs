@@ -10,28 +10,32 @@ import java.util.List;
 /**
  * Your implementation of MachineService.
  */
-public class MachineServiceImpl <M extends Machine> implements MachineService<M> {
+public class MachineServiceImpl<T extends Machine> implements MachineService<T> {
 
     @Override
-    public List<M> getAll(Class<? extends M> type) {
-        if(type == Bulldozer.class) {
-            return (List<M>) new BulldozerProducer().get();
+    public List<? extends T> getAll(Class<? extends T> type) {
+        if (type == Bulldozer.class) {
+            return (List<T>) new BulldozerProducer().get();
         } else if (type == Truck.class) {
-            return (List<M>) new TruckProducer().get();
+            return (List<T>) new TruckProducer().get();
         } else if (type == Excavator.class) {
-            return (List<M>) new ExcavatorProducer().get();
+            return (List<T>) new ExcavatorProducer().get();
         } else {
             throw new IllegalArgumentException("Unsupported machine type: " + type);
         }
     }
 
     @Override
-    public void fill(List<M> machines, M value) {
-
+    public void fill(List<? super T> machines, T value) {
+        for (int i = 0; i < machines.size(); i++) {
+            machines.set(i, value);
+        }
     }
 
     @Override
-    public void startWorking(List<Excavator> machines) {
-
+    public void startWorking(List<? extends Machine> machines) {
+        for (Machine machine : machines) {
+            machine.doWork();
+        }
     }
 }
