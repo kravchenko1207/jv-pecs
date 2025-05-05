@@ -1,5 +1,7 @@
 package core.mate.academy.service;
 
+import core.mate.academy.model.Excavator;
+
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ public interface MachineService<M> {
      * @param type - any class of Machine sub class. For example: Truck.class or Bulldozer.class
      * @return the list of machines
      */
-    List<Object> getAll(Class type);
+    List<M> getAll(Class <? extends M> type);
 
     /**
      * Fill the machines list with passed value
@@ -26,7 +28,7 @@ public interface MachineService<M> {
      * @param machines - list of machines to be filled with value
      * @param value    - any object of machine sub class
      */
-    void fill(List<M> machines, Object value);
+    void fill(List<M> machines, M value);
 
     /**
      * Call the method doWork() from each machine.
@@ -34,5 +36,5 @@ public interface MachineService<M> {
      *
      * @param machines - the list of machines
      */
-    void startWorking(List<M> machines);
+    void startWorking(List<Excavator> machines);
 }

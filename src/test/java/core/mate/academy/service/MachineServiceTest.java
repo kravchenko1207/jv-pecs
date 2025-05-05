@@ -16,32 +16,37 @@ import java.util.Random;
 public class MachineServiceTest {
     private static MachineService<Machine> machineService;
 
+    @BeforeClass
+    public static void beforeClass() {
+        machineService = new MachineServiceImpl();
+    }
+
     @Test
     public void getAll_bulldozerType() {
-        List<Object> actual = machineService.getAll(Bulldozer.class);
+        List<Machine> actual = machineService.getAll(Bulldozer.class);
         assertEquals("The list should contain elements of type Bulldozer",
-            Bulldozer.class, actual.get(0).getClass());
+                Bulldozer.class, actual.get(0).getClass());
     }
 
     @Test
     public void getAll_excavatorType() {
-        List<Object> actual = machineService.getAll(Excavator.class);
+        List<Machine> actual = machineService.getAll(Excavator.class);
         assertEquals("The list should contain elements of type Excavator",
-            Excavator.class, actual.get(0).getClass());
+                Excavator.class, actual.get(0).getClass());
     }
 
     @Test
     public void getAll_truckType() {
-        List<Object> actual = machineService.getAll(Truck.class);
+        List<Machine> actual = machineService.getAll(Truck.class);
         assertEquals("The list should contain elements of type Truck",
-            Truck.class, actual.get(0).getClass());
+                Truck.class, actual.get(0).getClass());
     }
 
     @Test
     public void getAll_invalidType() {
-        List<Object> actual = machineService.getAll(Machine.class);
+        List<Machine> actual = machineService.getAll(Machine.class);
         assertEquals("For the unknown class you should return empty list",
-            Collections.emptyList(), actual);
+                Collections.emptyList(), actual);
     }
 
     @Test
@@ -55,7 +60,7 @@ public class MachineServiceTest {
         assertEquals("The list size shouldn't change", randomSize, machines.size());
         for (Object machine : machines) {
             assertEquals("The list should contain elements of type Bulldozer",
-                Bulldozer.class, machine.getClass());
+                    Bulldozer.class, machine.getClass());
         }
     }
 
@@ -70,7 +75,7 @@ public class MachineServiceTest {
         assertEquals("The list size shouldn't change", randomSize, machines.size());
         for (Object machine : machines) {
             assertEquals("The list should contain elements of type Excavator",
-                Excavator.class, machine.getClass());
+                    Excavator.class, machine.getClass());
         }
     }
 
@@ -85,7 +90,7 @@ public class MachineServiceTest {
         assertEquals("The list size shouldn't change", randomSize, machines.size());
         for (Object machine : machines) {
             assertEquals("The list should contain elements of type Truck",
-                Truck.class, machine.getClass());
+                    Truck.class, machine.getClass());
         }
     }
 
@@ -95,7 +100,7 @@ public class MachineServiceTest {
     @Test
     public void startWorking_bulldozers() {
         List<Bulldozer> bulldozers = List.of(new Bulldozer());
-        machineService.startWorking(Collections.singletonList(bulldozers));
+        machineService.startWorking(bulldozers);
     }
 
     /**
@@ -104,7 +109,7 @@ public class MachineServiceTest {
     @Test
     public void startWorking_excavators() {
         List<Excavator> excavators = List.of(new Excavator());
-        machineService.startWorking(Collections.singletonList(excavators));
+        machineService.startWorking(excavators);
     }
 
     /**
@@ -113,6 +118,6 @@ public class MachineServiceTest {
     @Test
     public void startWorking_trucks() {
         List<Truck> trucks = List.of(new Truck());
-        machineService.startWorking(Collections.singletonList(trucks));
+        machineService.startWorking(trucks);
     }
 }

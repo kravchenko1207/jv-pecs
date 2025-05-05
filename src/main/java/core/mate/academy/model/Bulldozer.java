@@ -5,7 +5,12 @@ package core.mate.academy.model;
  * Do not remove no-args constructor
  */
 public class Bulldozer extends Machine {
-    public Bulldozer() {
+    private String name;
+    private double bladeWidth;
+    private boolean hasRipper;
+
+    public Bulldozer(String name) {
+        this.name = name;
     }
 
     @Override
@@ -13,15 +18,18 @@ public class Bulldozer extends Machine {
         System.out.println("Bulldozer started to work");
     }
 
-    private double bladeWidth;
-    private boolean hasRipper;
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public double getBladeWidth() {
         return bladeWidth;
-    }
-
-    public void setBladeWidth(double bladeWidth) {
-        this.bladeWidth = bladeWidth;
     }
 
     public boolean isHasRipper() {
@@ -30,5 +38,9 @@ public class Bulldozer extends Machine {
 
     public void setHasRipper(boolean hasRipper) {
         this.hasRipper = hasRipper;
+    }
+
+    public void setBladeWidth(double bladeWidth) {
+        this.bladeWidth = bladeWidth;
     }
 }

@@ -5,7 +5,12 @@ package core.mate.academy.model;
  * Do not remove no-args constructor
  */
 public class Excavator extends Machine {
-    public Excavator() {
+    private double armLength;
+    private int bucketCapacity;
+    private String name;
+
+    public Excavator(String name) {
+        this.name = name;
     }
 
     @Override
@@ -13,6 +18,29 @@ public class Excavator extends Machine {
         System.out.println("Excavator started to work");
     }
 
-    private double armLength;
-    private int bucketCapacity;
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getBucketCapacity() {
+        return bucketCapacity;
+    }
+
+    public void setBucketCapacity(int bucketCapacity) {
+        this.bucketCapacity = bucketCapacity;
+    }
+
+    public double getArmLength() {
+        return armLength;
+    }
+
+    public void setArmLength(double armLength) {
+        this.armLength = armLength;
+    }
 }
