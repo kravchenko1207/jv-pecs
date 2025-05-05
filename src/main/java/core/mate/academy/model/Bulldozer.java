@@ -12,4 +12,12 @@ public class Bulldozer extends Machine {
     public void doWork() {
         System.out.println("Bulldozer started to work");
     }
+
+    public void landCleanup() {
+        System.out.println("Bulldozer started to clean the land");
+    }
+
+    public void scraperPush() {
+        System.out.println("Bulldozer started to push the scrap");
+    }
 }

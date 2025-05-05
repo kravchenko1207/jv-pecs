@@ -12,4 +12,12 @@ public class Excavator extends Machine {
     public void doWork() {
         System.out.println("Excavator started to work");
     }
+
+    public void digUpTheSoil() {
+        System.out.println("Excavator started to dig up the soil");
+    }
+
+    public void moveLoad() {
+        System.out.println("Excavator started to move the load");
+    }
 }
