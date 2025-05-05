@@ -13,11 +13,22 @@ public class Bulldozer extends Machine {
         System.out.println("Bulldozer started to work");
     }
 
-    public void landCleanup() {
-        System.out.println("Bulldozer started to clean the land");
+    private double bladeWidth;
+    private boolean hasRipper;
+
+    public double getBladeWidth() {
+        return bladeWidth;
     }
 
-    public void scraperPush() {
-        System.out.println("Bulldozer started to push the scrap");
+    public void setBladeWidth(double bladeWidth) {
+        this.bladeWidth = bladeWidth;
+    }
+
+    public boolean isHasRipper() {
+        return hasRipper;
+    }
+
+    public void setHasRipper(boolean hasRipper) {
+        this.hasRipper = hasRipper;
     }
 }

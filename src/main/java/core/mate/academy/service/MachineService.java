@@ -26,7 +26,7 @@ public interface MachineService<M> {
      * @param machines - list of machines to be filled with value
      * @param value    - any object of machine sub class
      */
-    void fill(List<Object> machines, Object value);
+    void fill(List<M> machines, Object value);
 
     /**
      * Call the method doWork() from each machine.
@@ -34,5 +34,5 @@ public interface MachineService<M> {
      *
      * @param machines - the list of machines
      */
-    void startWorking(List<Object> machines);
+    void startWorking(List<M> machines);
 }

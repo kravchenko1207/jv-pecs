@@ -16,26 +16,6 @@ import java.util.Random;
 public class MachineServiceTest {
     private static MachineService<Machine> machineService;
 
-    @BeforeClass
-    public static void beforeClass() {
-        machineService = new MachineService<>() {
-            @Override
-            public List<Object> getAll(Class type) {
-                return List.of();
-            }
-
-            @Override
-            public void fill(List<Object> machines, Object value) {
-
-            }
-
-            @Override
-            public void startWorking(List<Object> machines) {
-
-            }
-        };
-    }
-
     @Test
     public void getAll_bulldozerType() {
         List<Object> actual = machineService.getAll(Bulldozer.class);
